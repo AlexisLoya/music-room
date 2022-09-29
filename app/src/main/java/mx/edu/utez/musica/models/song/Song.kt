@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 data class Song (
     @PrimaryKey(autoGenerate = true)
     var id:Int?,
+    var title:String?,
     var artist:String?,
-    var gender:String?,
     var year:Int?
 )
