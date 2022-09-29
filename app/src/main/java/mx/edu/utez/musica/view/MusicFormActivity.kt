@@ -1,5 +1,6 @@
 package mx.edu.utez.musica.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -32,12 +33,13 @@ class MusicFormActivity : AppCompatActivity() {
         }
 
     }
-    fun initObservers(){
-        viewModel.result.observe(this,{
-            Toast.makeText(applicationContext,it.toString(), Toast.LENGTH_SHORT).show()
-        })
-        viewModel.error.observe(this,{
-            Toast.makeText(applicationContext,it.toString(), Toast.LENGTH_SHORT).show()
-        })
+    private fun initObservers(){
+        viewModel.result.observe(this) {
+            Toast.makeText(applicationContext, it.toString(), Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, MusicGalleryActivity::class.java))
+        }
+        viewModel.error.observe(this) {
+            Toast.makeText(applicationContext, it.toString(), Toast.LENGTH_SHORT).show()
+        }
     }
 }

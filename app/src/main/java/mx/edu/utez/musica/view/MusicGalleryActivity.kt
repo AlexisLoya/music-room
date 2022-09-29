@@ -28,22 +28,22 @@ class MusicGalleryActivity : AppCompatActivity(), SongAdapter.Events {
 
     }
     suspend fun checkSize():Boolean{
-        var empty = false
+        var empty: Boolean
         empty = room.getSongDao().getAll().size > 0
         return empty
     }
     suspend fun setData(){
         binding.items.layoutManager = LinearLayoutManager(this)
+
         // define adapter
         adapter = SongAdapter(this,this)
         //
         binding.items.adapter = adapter
         adapter.submitList(room.getSongDao().getAll())
         adapter.notifyDataSetChanged()
-        Toast.makeText(applicationContext,room.getSongDao().getAll().size.toString(),Toast.LENGTH_SHORT).show()
     }
 
     override fun onItemClick(element: Song, position: Int) {
-        Toast.makeText(this,element.title, Toast.LENGTH_LONG).show()
+        Toast.makeText(this,element.title +" - "+element.artist+" - "+element.year, Toast.LENGTH_LONG).show()
     }
 }

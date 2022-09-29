@@ -12,15 +12,13 @@ class MusicFormViewModel:ViewModel() {
 
     suspend fun add(artist:String, title:String, year: String){
         if(MusicFormProvider.check(artist,title,year)){
-            val song = Song(
-                null,
-                title,
-                artist,
-                Integer.parseInt(year)
-            )
-            println(song)
             MusicApplication.room.getSongDao().insert(
-                song
+                Song(
+                    null,
+                    title,
+                    artist,
+                    Integer.parseInt(year)
+                )
             )
             result.postValue("Song Added")
         }else{
