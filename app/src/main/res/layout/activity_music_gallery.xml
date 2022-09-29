@@ -7,44 +7,11 @@
     tools:context=".view.MusicGalleryActivity"
     android:orientation="vertical"
     >
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/items"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add Song"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="50dp"
-        android:layout_margin="25dp"
-        />
-    <EditText
-        android:id="@+id/artist"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Artist"
-        android:layout_margin="25dp"
-        />
-    <EditText
-        android:id="@+id/gender"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Gender"
-        android:layout_margin="25dp"
-        />
-    <EditText
-        android:id="@+id/year"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="year"
-        android:inputType="number"
-        android:layout_margin="25dp"
-        />
-    <Button
-        android:id="@+id/add"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:text="Add"
+        tools:listitem="@layout/song_item"
         />
 
 </LinearLayout>
